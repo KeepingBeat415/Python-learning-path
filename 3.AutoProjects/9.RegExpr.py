@@ -55,3 +55,18 @@ data=[
 pattern = re.compile("Delhi", re.IGNORECASE)
 
 matches = [str_ for str_ in data if pattern.findall(str_)]
+
+# ---- Files ----
+file = open('files/file1.txt', 'w')
+file.write('First text\n')
+
+file.close()
+
+with open('file1.txt', 'w') as file:
+    file.write('content')
+   
+content = ''    
+with open('file3.csv', 'r') as file:
+    content = file.read()
+ 
+content[:-1]

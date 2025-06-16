@@ -68,3 +68,24 @@ for path in root_dir.glob("*.zip"):
     with zipfile.ZipFile(path, 'r') as zf:
         final_path = destination_path / Path(path.stem)
         zf.extractall(path=final_path)
+
+
+# ---- Down Files ----
+url = "https://filesamples.com/samples/audio/mp3/Symphony%20No.6%20(1st%20movement).mp3"
+
+import requests
+
+req = requests.get(url)
+
+ with open('download.map3', 'wb') as file:
+     file.write(req)
+     
+# ---- Upload Files ----
+url = 'https://cgi-lib.berkerley.edu/ex/fup.cgi'
+
+file = open('myfile.txt', 'rb')
+
+req = requests.post(url, file={"upfile":file})
+
+print(req.text)
+
